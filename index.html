@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        p {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        input[type=text] {
+        /*  
+            width:20px;
+            text-align: right;
+        */
+        border-radius:4px;
+        -moz-border-radius:4px;
+        -webkit-border-radius:4px;
+        box-shadow: 1px 1px 2px #333333;    
+        -moz-box-shadow: 1px 1px 2px #333333;
+        -webkit-box-shadow: 1px 1px 2px #333333;
+        background: #cccccc; 
+        border:1px solid #000000;
+        width:25px;
+        text-align: right;
+        }
+    </style>
+    <title>Métricas</title>
+</head>
+<body>
+    <h1>Contagem Indicativa</h1>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        Arquivo Lógico Interno:
+        <input type="text" id="ALI" value="0">
+        <br/>
+        Arquivo de Interface externa:
+        <input type="text" id="AIE" value="0">
+        <hr/>
+        <div id="pfIndicativa"></div>
+    </p>
+    <p>
+        <input type="button" id="btnIndicativa" value="Indicativa">
+    </p>
+    <h1>Contagem Estimada</h1>
+    <p>
+        Assume-se ALI e AIE de baixa complexidade e EE, SE e CE de média complexidade.
+
+    </p>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+        Arquivo Lógico Interno:
+        <input type="text" id="ALIe" value = "0">
+        <br/>
+        Arquivo de Interface externa:
+        <input type="text" id="AIEe" value = "0">
+        <br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+        Entrada Externa:
+        <input type="text" id="EE"   value = "0">
+        <br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Saída Externa:
+        <input type="text" id="SE"   value = "0">
+        <br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+        &nbsp;&nbsp;&nbsp;&nbsp;      
+        Consulta Externa:
+        <input type="text" id="SE"   value = "0">
+        <hr/>
+        <div id="pfEstimada"></div>        
+        <p>
+            <input type="button" id="btnEstimada" value="Estimada">
+        </p>
+    </p>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
