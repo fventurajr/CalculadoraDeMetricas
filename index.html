@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
+        body {
+            background:slategrey
+        }
         p {
             font-family: 'Courier New', Courier, monospace;
+            font-size: large
         }
         input[type=text] {
         /*  
@@ -21,28 +25,71 @@
         -webkit-box-shadow: 1px 1px 2px #333333;
         background: #cccccc; 
         border:1px solid #000000;
-        width:25px;
+        width:50px;
         text-align: right;
         }
+
+        #secao1 {
+            display:none;
+            visibility: visible;
+        }
+        #secao2 {
+            display:none;
+            visibility: visible;
+        }
+        span {
+            font-family: cursive;
+            color:yellow;
+        }
+		#cpxALI, #cpxAIE, #cpxEE, #cpxSE, #cpxCE {
+		border-radius:4px;
+        -moz-border-radius:4px;
+        -webkit-border-radius:4px;
+        box-shadow: 1px 1px 2px #333333;    
+        -moz-box-shadow: 1px 1px 2px #333333;
+        -webkit-box-shadow: 1px 1px 2px #333333;
+        background: #cccccc; 
+        border:1px solid #000000;
+        width:100px;
+        text-align: right;
+        	
+		}
     </style>
     <title>Métricas</title>
 </head>
 <body>
-    <h1>Contagem Indicativa</h1>
+    <h1>Portal do <span>Broda</span></h1>
+    <div>Conteudo</div>
+        <button type="button" onclick="Mudarestado('secao2')">Mostrar / Esconder</button>
+    </div>
+    <p>
+        <input  type="radio" id="Indicativa" name="tipo" 
+                onChange="selecionaTipo" value="1" checked>Contagem Indicativa
+        <input  type="radio" id="Estimada"   name="tipo" 
+                onChange="selecionaTipo" value="2">Contagem Estimada
+        <input type="radio" id="Detalhada"  name="tipo" 
+                onChange="selecionaTipo" value="3">Contagem Detalhada
+
+    </p>
+    <div id="secao1">
+    <h2>Contagem Indicativa</h2>
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
         Arquivo Lógico Interno:
-        <input type="text" id="ALI" value="0">
-        <br/>
+        <input type="text" id="ALI">
+        <br/><br/>
         Arquivo de Interface externa:
-        <input type="text" id="AIE" value="0">
+        <input type="text" id="AIE">
         <hr/>
         <div id="pfIndicativa"></div>
     </p>
     <p>
         <input type="button" id="btnIndicativa" value="Indicativa">
     </p>
-    <h1>Contagem Estimada</h1>
+    </div>
+
+    <div id="secao2">
+    <h2>Contagem Estimada</h2>
     <p>
         Assume-se ALI e AIE de baixa complexidade e EE, SE e CE de média complexidade.
 
@@ -50,31 +97,127 @@
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
         Arquivo Lógico Interno:
-        <input type="text" id="ALIe" value = "0">
-        <br/>
+        <input type="text" id="ALIe">
+        <br/><br/>
         Arquivo de Interface externa:
-        <input type="text" id="AIEe" value = "0">
-        <br/>
+        <input type="text" id="AIEe">
+        <br/><br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
         Entrada Externa:
-        <input type="text" id="EE"   value = "0">
-        <br/>
+        <input type="text"   id="EE">
+        <br/><br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Saída Externa:
-        <input type="text" id="SE"   value = "0">
-        <br/>
+        <input type="text"   id="SE">
+        <br/><br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
         &nbsp;&nbsp;&nbsp;&nbsp;      
         Consulta Externa:
-        <input type="text" id="SE"   value = "0">
+        <input type="text" id="CE">
         <hr/>
         <div id="pfEstimada"></div>        
         <p>
             <input type="button" id="btnEstimada" value="Estimada">
         </p>
     </p>
+    </div>
+	
+	<div id="secao3">
+	<h2>Contagem Detalhada</h2>
+	<p>
+        Aqui é necessário pesar as complexidades dos quesitos ALI, AIE, EE, SE e CE.
+
+    </p>
+	<p>
+	    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              
+		&nbsp;
+		Complexidade
+		<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+        Arquivo Lógico Interno:
+        <input type="text" id="ALIe">
+		&nbsp;&nbsp;
+		<select id="cpxALI">
+			<option value="0">Baixa</option>
+			<option value="1">Média</option>
+			<option value="2">Complexa</option>
+		</select>
+		Registros Lógicos:
+		<input type="text" id="rlALI">
+		Itens de Dados:
+		<input type="text" id="idALI">
+        <br/><br/>
+        Arquivo de Interface externa:
+        <input type="text" id="AIEe">
+		&nbsp;&nbsp;
+		<select id="cpxAIE">
+			<option value="0">Baixa</option>
+			<option value="1">Média</option>
+			<option value="2">Complexa</option>
+		</select>
+		Registros Lógicos:
+		<input type="text" id="rlALI">
+		Itens de Dados:
+		<input type="text" id="idALI">
+        <br/><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+        Entrada Externa:
+        <input type="text"   id="EE">
+		&nbsp;&nbsp;
+		<select id="cpxEE">
+			<option value="0">Baixa</option>
+			<option value="1">Média</option>
+			<option value="2">Complexa</option>
+		</select>
+		Registros Lógicos:
+		<input type="text" id="rlALI">
+		Itens de Dados:
+		<input type="text" id="idALI">
+        <br/><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Saída Externa:
+        <input type="text"   id="SE">
+		&nbsp;&nbsp;
+		<select id="cpxSE">
+			<option value="0">Baixa</option>
+			<option value="1">Média</option>
+			<option value="2">Complexa</option>
+		</select>
+		Registros Lógicos:
+		<input type="text" id="rlALI">
+		Itens de Dados:
+		<input type="text" id="idALI">
+        <br/><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+        &nbsp;&nbsp;&nbsp;&nbsp;      
+        Consulta Externa:
+        <input type="text" id="CE">
+		&nbsp;&nbsp;
+		<select id="cpxCE">
+			<option value="0">Baixa</option>
+			<option value="1">Média</option>
+			<option value="2">Complexa</option>
+		</select>
+		Registros Lógicos:
+		<input type="text" id="rlALI">
+		Itens de Dados:
+		<input type="text" id="idALI">
+        <hr/>
+        <div id="pfEstimada"></div>        
+        <p>
+            <input type="button" id="btnDetalhada" value="Detalhada">
+        </p>
+    </p>
+    
+	</div>
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
