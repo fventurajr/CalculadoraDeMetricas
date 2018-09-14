@@ -4,65 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <style>
-        body {
-            background:slategrey
-        }
-        p {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: large
-        }
-        input[type=text] {
-        /*  
-            width:20px;
-            text-align: right;
-        */
-        border-radius:4px;
-        -moz-border-radius:4px;
-        -webkit-border-radius:4px;
-        box-shadow: 1px 1px 2px #333333;    
-        -moz-box-shadow: 1px 1px 2px #333333;
-        -webkit-box-shadow: 1px 1px 2px #333333;
-        background: #cccccc; 
-        border:1px solid #000000;
-        width:50px;
-        text-align: right;
-        }
-
-        #secao1 {
-            display:none;
-            visibility: visible;
-        }
-        #secao2 {
-            display:none;
-            visibility: visible;
-        }
-        span {
-            font-family: cursive;
-            color:yellow;
-        }
-		#cpxALI, #cpxAIE, #cpxEE, #cpxSE, #cpxCE {
-		border-radius:4px;
-        -moz-border-radius:4px;
-        -webkit-border-radius:4px;
-        box-shadow: 1px 1px 2px #333333;    
-        -moz-box-shadow: 1px 1px 2px #333333;
-        -webkit-box-shadow: 1px 1px 2px #333333;
-        background: #cccccc; 
-        border:1px solid #000000;
-        width:100px;
-        text-align: right;
-        	
-		}
-    </style>
+    <link rel="stylesheet" href="estilo.css">
     <title>Métricas</title>
 </head>
 <body>
-    <h1>Portal do <span>Broda</span></h1>
-    <div>Conteudo</div>
-        <button type="button" onclick="Mudarestado('secao2')">Mostrar / Esconder</button>
-    </div>
+    <h1>Portal do <span id="proprietario">Broda</span></h1>
     <p>
+        <button type="button" onclick="Mudarestado('secao1')">Indicativa</button>
+        <button type="button" onclick="Mudarestado('secao2')">Estimada</button>
+        <button type="button" onclick="Mudarestado('secao3')">Detalhada</button>
+    </p>
+  <!--  <p>
         <input  type="radio" id="Indicativa" name="tipo" 
                 onChange="selecionaTipo" value="1" checked>Contagem Indicativa
         <input  type="radio" id="Estimada"   name="tipo" 
@@ -71,11 +23,12 @@
                 onChange="selecionaTipo" value="3">Contagem Detalhada
 
     </p>
+-->
     <div id="secao1">
     <h2>Contagem Indicativa</h2>
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        Arquivo Lógico Interno:
+        <span class="ali">Arquivo Lógico Interno:</span>
         <input type="text" id="ALI">
         <br/><br/>
         Arquivo de Interface externa:
@@ -141,12 +94,12 @@
 		<br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
         Arquivo Lógico Interno:
-        <input type="text" id="ALIe">
+        <input type="text" id="ALId">
 		&nbsp;&nbsp;
 		<select id="cpxALI">
-			<option value="0">Baixa</option>
-			<option value="1">Média</option>
-			<option value="2">Complexa</option>
+			<option value="7">Baixa</option>
+			<option value="10">Média</option>
+			<option value="15">Complexa</option>
 		</select>
 		Registros Lógicos:
 		<input type="text" id="rlALI">
@@ -154,12 +107,12 @@
 		<input type="text" id="idALI">
         <br/><br/>
         Arquivo de Interface externa:
-        <input type="text" id="AIEe">
+        <input type="text" id="AIEd">
 		&nbsp;&nbsp;
 		<select id="cpxAIE">
-			<option value="0">Baixa</option>
-			<option value="1">Média</option>
-			<option value="2">Complexa</option>
+			<option value="5">Baixa</option>
+			<option value="7">Média</option>
+			<option value="10">Complexa</option>
 		</select>
 		Registros Lógicos:
 		<input type="text" id="rlALI">
@@ -169,12 +122,12 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
         Entrada Externa:
-        <input type="text"   id="EE">
+        <input type="text"   id="EEd">
 		&nbsp;&nbsp;
 		<select id="cpxEE">
-			<option value="0">Baixa</option>
-			<option value="1">Média</option>
-			<option value="2">Complexa</option>
+			<option value="3">Baixa</option>
+			<option value="4">Média</option>
+			<option value="6">Complexa</option>
 		</select>
 		Registros Lógicos:
 		<input type="text" id="rlALI">
@@ -184,12 +137,12 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Saída Externa:
-        <input type="text"   id="SE">
+        <input type="text"   id="SEd">
 		&nbsp;&nbsp;
 		<select id="cpxSE">
-			<option value="0">Baixa</option>
-			<option value="1">Média</option>
-			<option value="2">Complexa</option>
+			<option value="4">Baixa</option>
+			<option value="5">Média</option>
+			<option value="7">Complexa</option>
 		</select>
 		Registros Lógicos:
 		<input type="text" id="rlALI">
@@ -199,19 +152,19 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
         &nbsp;&nbsp;&nbsp;&nbsp;      
         Consulta Externa:
-        <input type="text" id="CE">
+        <input type="text" id="CEd">
 		&nbsp;&nbsp;
 		<select id="cpxCE">
-			<option value="0">Baixa</option>
-			<option value="1">Média</option>
-			<option value="2">Complexa</option>
+			<option value="3">Baixa</option>
+			<option value="4">Média</option>
+			<option value="6">Complexa</option>
 		</select>
 		Registros Lógicos:
 		<input type="text" id="rlALI">
 		Itens de Dados:
 		<input type="text" id="idALI">
         <hr/>
-        <div id="pfEstimada"></div>        
+        <div id="pfDetalhada"></div>        
         <p>
             <input type="button" id="btnDetalhada" value="Detalhada">
         </p>
